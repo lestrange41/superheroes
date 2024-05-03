@@ -1,0 +1,22 @@
+{
+    "superheroes": [
+        {
+            "nombre": "Spiderman",
+            "nombreReal":"Peter Parker",
+            "tipo":"Héroe",
+            "poderes":"Fuerza, velocidad, sentido arácnido, equilibrio, capacidad de lanzar telarañas y resistencia sobrehumanos",
+            "edad":18,
+            "raza":"Humano",
+            "genero":"Masculino"
+        },
+        {
+            "nombre": "Venom",
+            "nombreReal":"Eddie Brock",
+            "tipo":"Villano",
+            "poderes":"Se puede adherir a cualquier cuerpo y dar a su poseedor fuerza hasta poder levantar 15 toneladas, sentido arácnido y agilidad sobrehumana",
+            "edad":18,
+            "raza":"Humano",
+            "genero":"Masculino"
+        }
+    ]
+}
