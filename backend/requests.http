@@ -1,0 +1,39 @@
+GET http://localhost:3000/superheroes HTTP/1.1
+
+###
+
+GET http://localhost:3000/superheroes/1 HTTP/1.1
+
+###
+
+POST http://localhost:3000/superheroes HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Doctor Strange",
+    "nombreReal":"Stephen Vincent Strange",
+    "tipo":"Héroe",
+    "poderes":"Poderes místicos (teletransportación, generación de ilusiones, proyección de energía)",
+    "edad":47,
+    "raza":"Humano",
+    "genero":"Masculino"
+}
+
+###
+
+PUT http://localhost:3000/superheroes/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Doctor Strange",
+    "nombreReal":"Stephen Vincent Strange",
+    "tipo":"Héroe",
+    "poderes":"Poderes místicos (teletransportación, generación de ilusiones, proyección de energía)",
+    "edad":47,
+    "raza":"Humano",
+    "genero":"Masculino"
+}
+
+###
+
+DELETE http://localhost:3000/superheroes/null HTTP/1.1
