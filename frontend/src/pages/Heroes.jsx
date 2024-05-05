@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import ConfirmationDialog from '../components/ConfirmationDialog';
-import img1 from '../img/laboratorio.jpeg'
+import img1 from '../img/dcvsmarvel.jpg';
 
 const Heroes = () => {
     const [heroes, setHeroes] = useState([]);
@@ -32,7 +32,7 @@ const Heroes = () => {
     }, [heroes, searchTerm]);
 
     const handleEdit = (id) => {
-        // Redirige a la página de edición del héroe con el ID proporcionado
+
         window.location.href = `/editarheroe/${id}`;
     };
 
@@ -43,7 +43,7 @@ const Heroes = () => {
     const confirmDelete = async () => {
         try {
             await axios.delete(`http://localhost:3000/superheroes/${selectedHeroId}`);
-            // Actualiza la lista de héroes después de la eliminación
+
             const updatedHeroes = heroes.filter(hero => hero.id !== selectedHeroId);
             setHeroes(updatedHeroes);
         } catch (error) {
@@ -65,13 +65,12 @@ const Heroes = () => {
     };
 
     return (
-        <div style={{backgroundImage: `url(${img1})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
+        <div style={{ backgroundImage: `url(${img1})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
             <Navbar />
             <div className='container mx-auto py-8'>
-                
                 <div className="mt-8">
                     <Link to="/crearheroe" className="bg-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                        + Añade un SUPERHÉROE 
+                        + Añade un SUPERHÉROE
                     </Link>
                 </div>
                 <div className="mt-8">
@@ -80,19 +79,18 @@ const Heroes = () => {
                 <div className='grid grid-cols-3 gap-4 mt-8'>
                     {filteredHeroes.map((heroe) => (
                         <div key={heroe.id} className={`border border-red-300 p-4 rounded-lg ${getCardColor(heroe.tipo)}`}>
-                        <h2 className='text-3xl text-primary font-semibold mb-4'>{heroe.nombre.charAt(0).toUpperCase() + heroe.nombre.slice(1)}</h2>
-                        <p className='text-white-600 mb-2'><strong>Nombre Real:</strong> {heroe.nombreReal}</p>
-                        <p className='text-white-600 mb-2'><strong>Tipo:</strong> {heroe.tipo}</p>
-                        <p className='text-white-600 mb-2'><strong>Poderes:</strong> {heroe.poderes}</p>
-                        <p className='text-white-600 mb-2'><strong>Edad:</strong> {heroe.edad}</p>
-                        <p className='text-white-600 mb-2'><strong>Raza:</strong> {heroe.raza}</p>
-                        <p className='text-white-600 mb-4'><strong>Género:</strong> {heroe.genero}</p>
-                        <div className="flex justify-between">
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(heroe.id)}>Editar</button>
-                            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(heroe.id)}>Eliminar</button>
+                            <h2 className='text-3xl text-primary font-semibold mb-4'>{heroe.nombre.charAt(0).toUpperCase() + heroe.nombre.slice(1)}</h2>
+                            <p className='text-white-600 mb-2'><strong>Nombre Real:</strong> {heroe.nombreReal}</p>
+                            <p className='text-white-600 mb-2'><strong>Tipo:</strong> {heroe.tipo}</p>
+                            <p className='text-white-600 mb-2'><strong>Poderes:</strong> {heroe.poderes}</p>
+                            <p className='text-white-600 mb-2'><strong>Edad:</strong> {heroe.edad}</p>
+                            <p className='text-white-600 mb-2'><strong>Raza:</strong> {heroe.raza}</p>
+                            <p className='text-white-600 mb-4'><strong>Género:</strong> {heroe.genero}</p>
+                            <div className="flex justify-between">
+                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(heroe.id)}>Editar</button>
+                                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(heroe.id)}>Eliminar</button>
+                            </div>
                         </div>
-                    </div>
-                    
                     ))}
                 </div>
                 <ConfirmationDialog
@@ -105,6 +103,5 @@ const Heroes = () => {
         </div>
     );
 }
-    
 
 export default Heroes;

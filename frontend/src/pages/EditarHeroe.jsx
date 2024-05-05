@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import EditAndSave from '../components/EditAndSave';
+import backgroundImg from '../img/laboratorio.jpeg';
 
-const EditHero = () => {
+const EditarHeroe = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [hero, setHero] = useState({
         nombre: '',
@@ -41,61 +43,63 @@ const EditHero = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setShowConfirmationDialog(true); // Abre el diálogo de confirmación antes de guardar los cambios
+        setShowConfirmationDialog(true);
     };
 
     const handleConfirmSubmit = async () => {
         try {
             await axios.put(`http://localhost:3000/superheroes/${id}`, hero);
             console.log('Héroe actualizado exitosamente');
-            setShowConfirmationDialog(false); // Cierra el diálogo de confirmación
-            // Aquí podrías redirigir a la página de detalles del héroe actualizado o a otra página
+            setShowConfirmationDialog(false);
+
+            navigate('/heroes');
         } catch (error) {
             console.error('Error al actualizar el héroe:', error);
         }
     };
 
     const handleCancelSubmit = () => {
-        setShowConfirmationDialog(false); // Cierra el diálogo de confirmación
+        setShowConfirmationDialog(false);
     };
 
     return (
-        <div>
+        <div style={{ backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh' }}>
             <Navbar />
             <div className='container mx-auto py-8'>
-                <h1 className='text-3xl font-bold text-center mb-8 text-primary'>Editar Héroe</h1>
-                <form onSubmit={handleSubmit}>
+
+                <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-black border border-red-800 rounded-lg shadow-lg px-8 py-6">
+                    <h1 className="text-3xl font-bold text-center mb-8 text-white">Editar Héroe</h1>
                     <div className='grid grid-cols-2 gap-4'>
                         <div className='col-span-2'>
-                            <label className='block mb-2 text-white-600'>Nombre</label>
-                            <input type='text' name='nombre' value={hero.nombre} onChange={handleChange} className='w-full border border-gray-300 rounded-md p-2 text-black' />
+                            <label className='block mb-2 text-white'>Nombre</label>
+                            <input type='text' name='nombre' value={hero.nombre} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-2'>
                             <label className='block mb-2'>Nombre Real</label>
-                            <input type='text' name='nombreReal' value={hero.nombreReal} onChange={handleChange} className='w-full border border-gray-300 rounded-md p-2 text-black' />
+                            <input type='text' name='nombreReal' value={hero.nombreReal} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-2'>
                             <label className='block mb-2'>Tipo:</label>
-                            <select name='genero' value={hero.genero} onChange={handleChange} className='w-full border border-gray-300 rounded-md p-2 text-black'>
+                            <select name='genero' value={hero.genero} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white'>
                                 <option value='Héroe'>Héroe</option>
                                 <option value='Villano'>Villano</option>
                             </select>
                         </div>
                         <div className='col-span-2'>
                             <label className='block mb-2'>Poderes</label>
-                            <textarea name='poderes' value={hero.poderes} onChange={handleChange} className='w-full border border-gray-300 rounded-md p-2 text-black'></textarea>
+                            <textarea name='poderes' value={hero.poderes} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white'></textarea>
                         </div>
                         <div className='col-span-1'>
                             <label className='block mb-2'>Edad</label>
-                            <input type='number' name='edad' value={hero.edad} onChange={handleChange} className='w-full border border-gray-300 rounded-md p-2 text-black' />
+                            <input type='number' name='edad' value={hero.edad} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-1'>
                             <label className='block mb-2'>Raza</label>
-                            <input type='text' name='raza' value={hero.raza} onChange={handleChange} className='w-full border border-gray-300 rounded-md p-2 text-black' />
+                            <input type='text' name='raza' value={hero.raza} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-2'>
                             <label className='block mb-2'>Género</label>
-                            <select name='genero' value={hero.genero} onChange={handleChange} className='w-full border border-gray-300 rounded-md p-2 text-black'>
+                            <select name='genero' value={hero.genero} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white'>
                                 <option value='Masculino'>Masculino</option>
                                 <option value='Femenino'>Femenino</option>
                             </select>
@@ -116,4 +120,4 @@ const EditHero = () => {
     );
 };
 
-export default EditHero;
+export default EditarHeroe;
