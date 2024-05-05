@@ -1,10 +1,18 @@
 import express from 'express'
 import fs from 'fs'
 import bodyParser from "body-parser"
+import cors from 'cors'
 
 const app = express()
 app.use(bodyParser.json())
 
+app.use(
+    cors({
+      origin: 'http://localhost:5173', 
+      methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+      optionsSuccessStatus: 200, 
+    })
+  );
 
 const readHeroes = () => {
     try {
@@ -14,6 +22,7 @@ const readHeroes = () => {
         console.log(error);
     }
 }
+//treure console log y posar errors 
 
 const writeHeroes = (data) => {
     try {
