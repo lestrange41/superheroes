@@ -46,12 +46,15 @@ export const getHeroById = (req, res) => {
 
 export const createHero = (req, res) => {
     try {
-        const data = readHeroes();
-        const body = req.body;
+        const data = readHeroes()
+        const body = req.body
+        const maxId = data.superheroes.reduce((max, heroe) => Math.max(max, heroe.id), 0)
+
         const newHeroe = {
-            id: data.superheroes.length + 1,
+            id: maxId + 1,
             ...body,
         };
+
         data.superheroes.push(newHeroe)
         writeHeroes(data)
         res.status(201).json(newHeroe)
