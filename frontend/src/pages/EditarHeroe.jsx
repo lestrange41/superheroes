@@ -1,9 +1,11 @@
+// EditarHeroe.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import EditAndSave from '../components/EditAndSave';
 import backgroundImg from '../img/laboratorio.jpeg';
+import SuccessMessage from '../components/SuccessMessage'; // Importar el componente SuccessMessage
 
 const EditarHeroe = () => {
     const navigate = useNavigate();
@@ -19,7 +21,7 @@ const EditarHeroe = () => {
     });
 
     const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false); // Nuevo estado para controlar la visibilidad del mensaje de éxito
 
     useEffect(() => {
         const fetchHero = async () => {
@@ -52,9 +54,11 @@ const EditarHeroe = () => {
             await axios.put(`http://localhost:3000/superheroes/${id}`, hero);
             console.log('Héroe actualizado exitosamente');
             setShowConfirmationDialog(false);
-            setShowSuccessMessage(true); // Mostrar mensaje de éxito
-            setTimeout(() => setShowSuccessMessage(false), 3000); // Ocultar el mensaje después de 3 segundos
-            navigate('/heroes');
+            setShowSuccessMessage(true); // Mostrar el mensaje de éxito
+            setTimeout(() => {
+                setShowSuccessMessage(false);
+                navigate('/heroes');
+            }, 3000);
         } catch (error) {
             console.error('Error al actualizar el héroe:', error);
         }
@@ -63,13 +67,6 @@ const EditarHeroe = () => {
     const handleCancelSubmit = () => {
         setShowConfirmationDialog(false);
     };
-
-    useEffect(() => {
-        if (window.location.pathname === '/heroes') {
-            setShowSuccessMessage(true);
-            setTimeout(() => setShowSuccessMessage(false), 3000); // Ocultar el mensaje después de 3 segundos
-        }
-    }, []);
 
     return (
         <div style={{ backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh' }}>
@@ -123,13 +120,11 @@ const EditarHeroe = () => {
                     message="¿Estás seguro de que deseas guardar los cambios?"
                     onCancel={handleCancelSubmit}
                     onConfirm={handleConfirmSubmit}
-                    
                 />
-               {showSuccessMessage && (
-                     <div className="bg-green-900 text-white p-3 fixed bottom-0 left-0 w-full text-center z-50" style={{ marginTop: '60px' }}>
-                     El superhéroe se ha editado con éxito.
-                 </div>
-                )}
+                <SuccessMessage
+                    isOpen={showSuccessMessage}
+                    message="El superhéroe se ha editado con éxito."
+                />
             </div>
         </div>
     );
