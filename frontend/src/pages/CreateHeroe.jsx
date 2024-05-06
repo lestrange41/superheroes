@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import backgroundimg from '../img/laboratorio.jpeg';
+import AcceptDialog from '../components/AcceptDialog';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 const CreateHeroe = () => {
   const [nombre, setNombre] = useState('');
@@ -12,17 +14,19 @@ const CreateHeroe = () => {
   const [raza, setRaza] = useState('');
   const [genero, setGenero] = useState('');
   const [mensajeExito, setMensajeExito] = useState('');
-  const [mensajeError, setMensajeError] = useState('');
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const navigate = useNavigate(); // Utiliza useNavigate para la navegación
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!nombre || !nombreReal || !tipo || !poderes || !edad || !raza || !genero) {
-      setMensajeError('Por favor, complete todos los campos para crear el superhéroe.');
+      setMensajeExito('');
       return;
     }
+
     try {
-      const response = await axios.post('http://localhost:3000/superheroes', {
+      await axios.post('http://localhost:3000/superheroes', {
         nombre,
         nombreReal,
         tipo,
@@ -31,33 +35,31 @@ const CreateHeroe = () => {
         raza,
         genero
       });
-      if (response.status === 201) {
-        setNombre('');
-        setNombreReal('');
-        setTipo('');
-        setPoderes('');
-        setEdad('');
-        setRaza('');
-        setGenero('');
-        setMensajeExito('El superhéroe se ha creado con éxito.');
-        setMensajeError('');
-      } else {
-        throw new Error('Error al crear el superhéroe. Por favor, inténtelo de nuevo.');
-      }
+
+      setNombre('');
+      setNombreReal('');
+      setTipo('');
+      setPoderes('');
+      setEdad('');
+      setRaza('');
+      setGenero('');
+      setMensajeExito('El superhéroe se ha creado con éxito.');
+      setShowSuccessDialog(true);
     } catch (error) {
       console.error('Error al crear el superhéroe:', error);
-      setMensajeError('Error al crear el superhéroe. Por favor, inténtelo de nuevo.');
-      setMensajeExito('');
     }
+  };
+
+  const handleDialogClose = () => {
+    setShowSuccessDialog(false);
+    navigate('/heroes'); // Utiliza navigate para redirigir al usuario
   };
 
   return (
     <div className="relative h-screen" style={{ backgroundImage: `url(${backgroundimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Navbar />
       <div className="container mx-auto py-8">
-
         <div className='border-white-200'>
-
           <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-black border border-red-800 rounded-lg shadow-lg px-8 py-6">
             <h1 className="text-3xl font-bold text-center mb-8 text-white">Creación de Superhéroe</h1>
             <div className="mb-4">
@@ -98,9 +100,12 @@ const CreateHeroe = () => {
               </select>
             </div>
             <button type="submit" className="bg-red-800 text-white py-2 px-4 rounded-lg text-lg hover:bg-red-900 transition duration-300">Crear Superhéroe</button>
-            {mensajeError && <p className="text-red-500 mt-4">{mensajeError}</p>}
-            {mensajeExito && <p className="text-green-500 mt-4">{mensajeExito}</p>}
           </form>
+          <AcceptDialog
+            isOpen={showSuccessDialog}
+            message={mensajeExito}
+            onConfirm={handleDialogClose} // Ajusta la función que se ejecutará al confirmar
+          />
         </div>
       </div>
     </div>

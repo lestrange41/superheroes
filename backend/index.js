@@ -23,6 +23,7 @@ const readHeroes = () => {
     }
 }
 //treure console log y posar errors 
+// res.json (acotar que retorna 200, 400)
 
 const writeHeroes = (data) => {
     try {
@@ -47,7 +48,7 @@ app.get('/superheroes/:id', (req, res) => {
     const heroe = data.superheroes.find((heroe) => heroe.id === id)
     res.json(heroe)
 })
-
+//posar errors quan no es troba 
 //crear superheroi
 app.post('/superheroes', (req,res) => {
     const data = readHeroes()
@@ -59,6 +60,8 @@ app.post('/superheroes', (req,res) => {
     data.superheroes.push(newHeroe)
     writeHeroes(data)
     res.json(newHeroe)
+
+    //eooo
 })
 
 app.put('/superheroes/:id', (req, res) => {
