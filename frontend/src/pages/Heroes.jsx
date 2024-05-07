@@ -67,7 +67,7 @@ const Heroes = () => {
     }
 
     const getCardColor = (type) => {
-        return type.toLowerCase() === 'villain' ? 'bg-rose-950' : 'bg-blue-900';
+        return type.toLowerCase() === 'villano' ? 'bg-rose-950' : 'bg-blue-900';
     }
 
     return (

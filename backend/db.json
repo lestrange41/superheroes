@@ -1,1 +1,135 @@
-{"superheroes":[{"id":1,"name":"Superman","realName":"Clark Kent","type":"Hero","powers":"Super strength, speed, flight, heat vision","age":35,"race":"Kryptonian","gender":"Male","nombre":"Doctor Strange","nombreReal":"Stephen Vincent Strange","tipo":"Héroe","poderes":"Poderes místicos (teletransportación, generación de ilusiones, proyección de energía)","edad":47,"raza":"Humano","genero":"Masculino"},{"id":3,"name":"Wonder Woman","realName":"Diana Prince","type":"Hero","powers":"Superhuman strength, flight, combat skill","age":3000,"race":"Amazon","gender":"Female"},{"id":4,"name":"SPIDER-MAn","realName":"Peter Parker","type":"Hero","powers":"Agility and superhuman strength, spider-sense","age":25,"race":"Human","gender":"Male"},{"id":5,"name":"Iron Man","realName":"Tony Stark","type":"Hero","powers":"Genius intellect, technological armor","age":45,"race":"Human","gender":"Male"},{"id":6,"name":"Captain America","realName":"Steve Rogers","type":"Hero","powers":"Superhuman strength and endurance","age":100,"race":"Human","gender":"Male"},{"id":7,"name":"Hulk","realName":"Bruce Banner","type":"Hero","powers":"Superhuman strength, regeneration","age":40,"race":"Human (mutated)","gender":"Male"},{"id":8,"name":"Thor","realName":"Thor Odinson","type":"Hero","powers":"Superhuman strength and longevity, weather control","age":1000,"race":"Asgardian","gender":"Male"},{"id":10,"name":"Joker","realName":"Unknown","type":"Villain","powers":"Mastermind, expert in weapons and traps","age":"Unknown","race":"Human","gender":"Male"},{"id":11,"name":"Lex Luthor","realName":"Alexander Luthor","type":"Villain","powers":"Intellectual genius, unlimited financial resources","age":55,"race":"Human","gender":"Male"},{"id":12,"name":"Magneto","realName":"Max Eisenhardt","type":"Villain","powers":"Control of magnetic fields, metal manipulation","age":90,"race":"Mutant","gender":"Male"},{"id":13,"name":"Venom","realName":"Eddie Brock","type":"Villain","powers":"Alien symbiote, superhuman strength","age":35,"race":"Symbiote","gender":"Male"}]}
+{
+    "superheroes": [
+      {
+        "id": 1,
+        "name": "Doctor Strange",
+        "realName": "Stephen Vincent Strange",
+        "type": "Héroe",
+        "powers": "Poderes místicos (teletransportación, generación de ilusiones, proyección de energía)",
+        "age": 47,
+        "race": "Humano",
+        "gender": "Masculino"
+      },
+      {
+        "id": 2,
+        "name": "Iron Man",
+        "realName": "Tony Stark",
+        "type": "Héroe",
+        "powers": "Genio intelectual, armadura tecnológica",
+        "age": 45,
+        "race": "Humano",
+        "gender": "Masculino"
+      },
+      {
+        "id": 3,
+        "name": "Spider-Man",
+        "realName": "Peter Parker",
+        "type": "Héroe",
+        "powers": "Agilidad y fuerza sobrehumana, sentido arácnido",
+        "age": 25,
+        "race": "Humano",
+        "gender": "Masculino"
+      },
+      {
+        "id": 4,
+        "name": "Lex Luthor",
+        "realName": "Alexander Luthor",
+        "type": "Villano",
+        "powers": "Genio intelectual, recursos financieros ilimitados",
+        "age": 55,
+        "race": "Humano",
+        "gender": "Masculino"
+      },
+      {
+        "id": 5,
+        "name": "Wonder Woman",
+        "realName": "Diana Prince",
+        "type": "Héroe",
+        "powers": "Fuerza sobrehumana, vuelo, habilidades de combate",
+        "age": 3000,
+        "race": "Amazona",
+        "gender": "Femenino"
+      },
+      {
+        "id": 6,
+        "name": "Venom",
+        "realName": "Eddie Brock",
+        "type": "Villano",
+        "powers": "Simbionte alienígena, fuerza sobrehumana",
+        "age": 35,
+        "race": "Simbionte",
+        "gender": "Masculino"
+      },
+      {
+        "id": 7,
+        "name": "Superman",
+        "realName": "Clark Kent",
+        "type": "Héroe",
+        "powers": "Super fuerza, velocidad, vuelo, visión de calor",
+        "age": 35,
+        "race": "Kryptoniano",
+        "gender": "Masculino"
+      },
+      {
+        "id": 8,
+        "name": "Captain America",
+        "realName": "Steve Rogers",
+        "type": "Héroe",
+        "powers": "Super fuerza y resistencia",
+        "age": 100,
+        "race": "Humano",
+        "gender": "Masculino"
+      },
+      {
+        "id": 9,
+        "name": "Hulk",
+        "realName": "Bruce Banner",
+        "type": "Héroe",
+        "powers": "Super fuerza, regeneración",
+        "age": 40,
+        "race": "Humano (mutado)",
+        "gender": "Masculino"
+      },
+      {
+        "id": 10,
+        "name": "Thor",
+        "realName": "Thor Odinson",
+        "type": "Héroe",
+        "powers": "Super fuerza y longevidad, control del clima",
+        "age": 1000,
+        "race": "Asgardiano",
+        "gender": "Masculino"
+      },
+      {
+        "id": 11,
+        "name": "Joker",
+        "realName": "Desconocido",
+        "type": "Villano",
+        "powers": "Maestro del crimen, experto en armas y trampas",
+        "age": "Desconocida",
+        "race": "Humano",
+        "gender": "Masculino"
+      },
+      {
+        "id": 12,
+        "name": "Magneto",
+        "realName": "Max Eisenhardt",
+        "type": "Villano",
+        "powers": "Control de campos magnéticos, manipulación del metal",
+        "age": 90,
+        "race": "Mutante",
+        "gender": "Masculino"
+      },
+      {
+        "id": 13,
+        "name": "Venom",
+        "realName": "Eddie Brock",
+        "type": "Villano",
+        "powers": "Simbionte alienígena, fuerza sobrehumana",
+        "age": 35,
+        "race": "Simbionte",
+        "gender": "Masculino"
+      }
+    ]
+  }
+  
