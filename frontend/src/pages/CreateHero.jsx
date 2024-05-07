@@ -5,7 +5,7 @@ import backgroundImg from '../img/laboratorio.jpeg';
 import AcceptDialog from '../components/AcceptDialog';
 import { useNavigate } from 'react-router-dom';
 
-const CreateHeroe = () => {
+const CreateHero = () => {
   const [name, setName] = useState('');
   const [realName, setRealName] = useState('');
   const [type, setType] = useState('');
@@ -20,6 +20,7 @@ const CreateHeroe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+  
     if (!name || !realName || !type || !powers || !age || !race || !gender) {
       setSuccessMessage('');
       return;
@@ -43,7 +44,7 @@ const CreateHeroe = () => {
       setAge('');
       setRace('');
       setGender('');
-      setSuccessMessage('The superhero has been successfully created.');
+      setSuccessMessage('El superhéroe ha sido creado correctamente.');
       setShowSuccessDialog(true);
     } catch (error) {
       console.error('Error creating the superhero:', error);
@@ -119,4 +120,4 @@ const CreateHeroe = () => {
   );
 }
 
-export default CreateHeroe;
+export default CreateHero;

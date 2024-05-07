@@ -10,7 +10,7 @@ const AcceptDialog = ({ isOpen, message, onConfirm }) => {
             <div className="flex justify-center">
               <button
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mr-4 rounded"
-                onClick={onConfirm} // Asegúrate de llamar a onConfirm al hacer clic en el botón
+                onClick={onConfirm} 
               >
                 OK
               </button>
