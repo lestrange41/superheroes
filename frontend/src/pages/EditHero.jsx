@@ -73,56 +73,59 @@ const EditHero = () => {
             <div className='container mx-auto py-8'>
 
                 <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-black border border-red-800 rounded-lg shadow-lg px-8 py-6">
-                    <h1 className="text-3xl font-bold text-center mb-8 text-white">Edit Hero</h1>
+                    <h1 className="text-3xl font-bold text-center mb-8 text-white">Editar Héroe</h1>
                     <div className='grid grid-cols-2 gap-4'>
                         <div className='col-span-2'>
-                            <label className='block mb-2 text-white'>Name</label>
+                            <label className='block mb-2 text-white'>Nombre:</label>
                             <input type='text' name='name' value={hero.name.toUpperCase()} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-2'>
-                            <label className='block mb-2'>Real Name</label>
+                            <label className='block mb-2'>Nombre Real:</label>
                             <input type='text' name='realName' value={hero.realName} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-2'>
-                            <label className='block mb-2'>Type:</label>
+                            <label className='block mb-2'>Tipo:</label>
                             <select name='type' value={hero.type} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white'>
-                                <option value='Hero'>Hero</option>
-                                <option value='Villain'>Villain</option>
+                                <option value="">Selecciona el tipo</option>   
+                                <option value='Hero'>Héroe</option>
+                                <option value='Villain'>Villano</option>
                             </select>
                         </div>
                         <div className='col-span-2'>
-                            <label className='block mb-2'>Powers</label>
+                            <label className='block mb-2'>Poderes:</label>
                             <textarea name='powers' value={hero.powers} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white'></textarea>
                         </div>
                         <div className='col-span-1'>
-                            <label className='block mb-2'>Age</label>
+                            <label className='block mb-2'>Edad:</label>
                             <input type='number' name='age' value={hero.age} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-1'>
-                            <label className='block mb-2'>Race</label>
+                            <label className='block mb-2'>Raza:</label>
                             <input type='text' name='race' value={hero.race} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-2'>
-                            <label className='block mb-2'>Gender</label>
+                            <label className='block mb-2'>Género:</label>
                             <select name='gender' value={hero.gender} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white'>
-                                <option value='Male'>Male</option>
+                                <option value=''>Selecciona el género</option>  
+                                <option value='Male'>Hombre</option>
                                 <option value='Female'>Female</option>
+                                <option value='Unidentified'>No identificado</option>
                             </select>
                         </div>
-                        <div className='col-span-2'>
-                            <button type='submit' className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Save</button>
+                        <div className='col-span-2 flex justify-center'>
+                            <button type='submit' className='bg-red-800 text-white py-2 px-4 rounded-lg text-lg hover:bg-red-900 transition duration-300'>Guardar</button>
                         </div>
                     </div>
                 </form>
                 <EditAndSave
                     isOpen={showConfirmationDialog}
-                    message="Are you sure you want to save the changes?"
+                    message="Estas seguro que quieres guardar los cambios?"
                     onCancel={handleCancelSubmit}
                     onConfirm={handleConfirmSubmit}
                 />
                 <SuccessMessage
                     isOpen={showSuccessMessage}
-                    message="The superhero has been edited successfully."
+                    message="El superhéroe ha sido editado correctamente."
                 />
             </div>
         </div>

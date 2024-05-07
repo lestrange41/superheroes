@@ -77,38 +77,38 @@ const Heroes = () => {
                 <div className='container mx-auto py-8'>
                     <div className="mt-8">
                         <Link to="/createHero" className="bg-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            + Add a HERO
+                            + Añadir un Superhéroe
                         </Link>
                     </div>
                     <div className="mt-8">
-                        <input type="text" value={searchTerm} onChange={handleSearch} placeholder="Search by name" className="w-full border border-gray-300 bg-gray-200 rounded-md p-2 text-black" />
+                        <input type="text" value={searchTerm} onChange={handleSearch} placeholder="Buscar un superhéroe" className="w-full border border-gray-300 bg-gray-200 rounded-md p-2 text-black" />
                     </div>
                     <div className='grid grid-cols-3 gap-4 mt-8'>
                         {filteredHeroes.map((hero) => (
                             <div key={hero.id} className={`border border-red-300 p-4 rounded-lg ${getCardColor(hero.type)}`}>
                                 <h2 className='text-3xl text-primary font-semibold mb-4'>{hero.name.charAt(0).toUpperCase() + hero.name.slice(1).toLowerCase()}</h2>
-                                <p className='text-white-600 mb-2'><strong>Real Name:</strong> {hero.realName}</p>
-                                <p className='text-white-600 mb-2'><strong>Type:</strong> {hero.type}</p>
-                                <p className='text-white-600 mb-2'><strong>Powers:</strong> {hero.powers}</p>
-                                <p className='text-white-600 mb-2'><strong>Age:</strong> {hero.age}</p>
-                                <p className='text-white-600 mb-2'><strong>Race:</strong> {hero.race}</p>
-                                <p className='text-white-600 mb-4'><strong>Gender:</strong> {hero.gender}</p>
+                                <p className='text-white-600 mb-2'><strong>Nombre real:</strong> {hero.realName}</p>
+                                <p className='text-white-600 mb-2'><strong>Tipo:</strong> {hero.type}</p>
+                                <p className='text-white-600 mb-2'><strong>Poderes:</strong> {hero.powers}</p>
+                                <p className='text-white-600 mb-2'><strong>Edad:</strong> {hero.age}</p>
+                                <p className='text-white-600 mb-2'><strong>Raza:</strong> {hero.race}</p>
+                                <p className='text-white-600 mb-4'><strong>Género:</strong> {hero.gender}</p>
                                 <div className="flex justify-between">
-                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(hero.id)}>Edit</button>
-                                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(hero.id)}>Delete</button>
+                                    <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-4" onClick={() => handleEdit(hero.id)}>Editar</button>
+                                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(hero.id)}>Eliminar</button>
                                 </div>
                             </div>
                         ))}
                     </div>
                     <ConfirmationDialog
                         isOpen={selectedHeroId !== null}
-                        message="Are you sure you want to delete this hero?"
+                        message="Estas seguro que quieres eliminiar el superhéroe?"
                         onCancel={cancelDelete}
                         onConfirm={confirmDelete}
                     />
                     <SuccessMessage
                         isOpen={showSuccessMessage}
-                        message="The character has been deleted successfully."
+                        message="El superhéroe ha sido eliminado correctamente."
                     />
                 </div>
             </div>
