@@ -84,7 +84,7 @@ export const updateHero = (req, res) => {
         res.status(500).json({ message: 'Error interno del servidor' })
     }
 };
-//81 posar http
+
 export const deleteHero = (req, res) => {
     try {
         const data = readHeroes()

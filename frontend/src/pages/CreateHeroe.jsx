@@ -109,7 +109,7 @@ const CreateHeroe = () => {
           <AcceptDialog
             isOpen={showSuccessDialog}
             message={mensajeExito}
-            onConfirm={handleDialogClose} 
+            onConfirm={handleDialogClose} // Ajusta la función que se ejecutará al confirmar
           />
         </div>
       </div>
