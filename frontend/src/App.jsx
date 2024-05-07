@@ -1,12 +1,12 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 // PAGES
-import Home from './pages/Home';
-import Error404 from './pages/Error404';
-import Heroes from './pages/Heroes';
-import CreateHero from "./pages/CreateHero";
-import EditHero from "./pages/EditHero";
+import Home from './pages/Home'
+import Error404 from './pages/Error404'
+import Heroes from './pages/Heroes'
+import CreateHero from "./pages/CreateHero"
+import EditHero from "./pages/EditHero"
 
 function App() {
   return (

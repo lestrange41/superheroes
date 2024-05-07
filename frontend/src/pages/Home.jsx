@@ -1,7 +1,7 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
-import heroestop from '../img/carrousel.jpg';
+import React from 'react'
+import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom'
+import heroestop from '../img/carrousel.jpg'
 
 const Home = () => {
   return (

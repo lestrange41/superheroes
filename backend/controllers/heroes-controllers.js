@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'fs'
 
 const readHeroes = () => {
     try {
@@ -8,7 +8,7 @@ const readHeroes = () => {
         console.error(error)
         throw new Error('Error al leer los datos de los superhéroes')
     }
-};
+}
 
 const writeHeroes = (data) => {
     try {
@@ -17,7 +17,7 @@ const writeHeroes = (data) => {
         console.error(error)
         throw new Error('Error al escribir los datos de los superhéroes')
     }
-};
+}
 
 export const getHeroes = (req, res) => {
     try {
@@ -27,7 +27,7 @@ export const getHeroes = (req, res) => {
         console.error(error)
         res.status(500).json({ message: 'Error interno del servidor' })
     }
-};
+}
 
 export const getHeroById = (req, res) => {
     try {
@@ -42,7 +42,7 @@ export const getHeroById = (req, res) => {
         console.error(error)
         res.status(500).json({ message: 'Error interno del servidor' })
     }
-};
+}
 
 export const createHero = (req, res) => {
     try {
@@ -62,7 +62,7 @@ export const createHero = (req, res) => {
         console.error(error)
         res.status(500).json({ message: 'Error interno del servidor' })
     }
-};
+}
 
 export const updateHero = (req, res) => {
     try {
@@ -83,7 +83,7 @@ export const updateHero = (req, res) => {
         console.error(error)
         res.status(500).json({ message: 'Error interno del servidor' })
     }
-};
+}
 
 export const deleteHero = (req, res) => {
     try {
@@ -100,4 +100,4 @@ export const deleteHero = (req, res) => {
         console.error(error)
         res.status(500).json({ message: 'Error interno del servidor' })
     }
-};
+}

@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Navbar from '../components/Navbar';
-import backgroundImg from '../img/laboratorio.jpeg';
-import AcceptDialog from '../components/AcceptDialog';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'
+import axios from 'axios'
+import Navbar from '../components/Navbar'
+import backgroundImg from '../img/laboratorio.jpeg'
+import AcceptDialog from '../components/AcceptDialog'
+import { useNavigate } from 'react-router-dom'
 
 const CreateHero = () => {
-  const [name, setName] = useState('');
-  const [realName, setRealName] = useState('');
-  const [type, setType] = useState('');
-  const [powers, setPowers] = useState('');
-  const [age, setAge] = useState('');
-  const [race, setRace] = useState('');
-  const [gender, setGender] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
-  const navigate = useNavigate();
+  const [name, setName] = useState('')
+  const [realName, setRealName] = useState('')
+  const [type, setType] = useState('')
+  const [powers, setPowers] = useState('')
+  const [age, setAge] = useState('')
+  const [race, setRace] = useState('')
+  const [gender, setGender] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
   
     if (!name || !realName || !type || !powers || !age || !race || !gender) {
-      setSuccessMessage('');
-      return;
+      setSuccessMessage('')
+      return
     }
 
     try {
@@ -35,30 +35,30 @@ const CreateHero = () => {
         age: parseInt(age),
         race,
         gender
-      });
+      })
 
-      setName('');
-      setRealName('');
-      setType('');
-      setPowers('');
-      setAge('');
-      setRace('');
-      setGender('');
-      setSuccessMessage('El superhéroe ha sido creado correctamente.');
-      setShowSuccessDialog(true);
+      setName('')
+      setRealName('')
+      setType('')
+      setPowers('')
+      setAge('')
+      setRace('')
+      setGender('')
+      setSuccessMessage('El superhéroe ha sido creado correctamente.')
+      setShowSuccessDialog(true)
     } catch (error) {
-      console.error('Error creating the superhero:', error);
+      console.error('Error creating the superhero:', error)
     }
-  };
+  }
 
   const handleDialogClose = () => {
     setShowSuccessDialog(false)
     navigate('/heroes')
-  };
+  }
 
   const handleNameChange = (e) => {
-    const capitalizedName = e.target.value.toUpperCase();
-    setName(capitalizedName);
+    const capitalizedName = e.target.value.toUpperCase()
+    setName(capitalizedName)
   }
 
   return (

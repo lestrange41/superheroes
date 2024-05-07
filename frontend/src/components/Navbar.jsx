@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 import Loader from '../components/Loader'
 
 const Navbar = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const handleLoadingChange = (value) => {
     setLoading(value);
@@ -13,10 +13,12 @@ const Navbar = () => {
       <Loader loading={loading} />
       <nav className="bg-secondary-900 p-4">
         <div className="container mx-auto flex justify-between items-center">
+          <Link to='/'onClick={() => handleLoadingChange(true)}>
           <div className="text-4xl font-bold">
-            <span className="text-white-500">SUPER</span>
-            <span className="text-primary">HÉROES</span>
+            <span className="text-white hover:text-primary">SUPER</span>
+            <span className="text-primary hover:text-white">HÉROES</span>
           </div>
+          </Link>
           <ul className="flex space-x-8">
             <li><Link to="/" className="text-primary hover:text-white" onClick={() => handleLoadingChange(true)}>INICIO</Link></li>
             <li>|</li>
