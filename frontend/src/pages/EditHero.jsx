@@ -87,8 +87,8 @@ const EditHero = () => {
                             <label className='block mb-2'>Tipo:</label>
                             <select name='type' value={hero.type} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white'>
                                 <option value="">Selecciona el tipo</option>   
-                                <option value='Hero'>Héroe</option>
-                                <option value='Villain'>Villano</option>
+                                <option value='Héroe'>Héroe</option>
+                                <option value='Villano'>Villano</option>
                             </select>
                         </div>
                         <div className='col-span-2'>
@@ -107,9 +107,9 @@ const EditHero = () => {
                             <label className='block mb-2'>Género:</label>
                             <select name='gender' value={hero.gender} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white'>
                                 <option value=''>Selecciona el género</option>  
-                                <option value='Male'>Hombre</option>
-                                <option value='Female'>Female</option>
-                                <option value='Unidentified'>No identificado</option>
+                                <option value='Hombre'>Hombre</option>
+                                <option value='Mujer'>Mujer</option>
+                                <option value='No identificado'>No identificado</option>
                             </select>
                         </div>
                         <div className='col-span-2 flex justify-center'>

@@ -80,8 +80,8 @@ const CreateHero = () => {
               <label htmlFor="type" className="block mb-2 text-white">Tipo:</label>
               <select id="type" value={type} onChange={(e) => setType(e.target.value)} className="w-full bg-gray-900 border border-red-800 rounded-md px-3 py-2 text-white">
               <option value="">Selecciona el tipo</option>   
-                <option value="Hero">Héroe</option>
-                <option value="Villain">Villano</option>
+                <option value="Héroe">Héroe</option>
+                <option value="Villano">Villano</option>
               </select>
             </div>
             <div className="mb-4">
@@ -100,9 +100,9 @@ const CreateHero = () => {
               <label htmlFor="gender" className="block mb-2 text-white">Género:</label>
               <select id="gender" value={gender} onChange={(e) => setGender(e.target.value)} className="w-full bg-gray-900 border border-red-800 rounded-md px-3 py-2 text-white">
                 <option value="">Selecciona el género</option>
-                <option value="Male">Hombre</option>
-                <option value="Female">Mujer</option>
-                <option value="Unidentified">No identificado</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+                <option value="No identificado">No identificado</option>
               </select>
             </div>
             <div className='flex justify-center'>

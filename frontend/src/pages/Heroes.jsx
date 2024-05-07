@@ -86,7 +86,7 @@ const Heroes = () => {
                     <div className='grid grid-cols-3 gap-4 mt-8'>
                         {filteredHeroes.map((hero) => (
                             <div key={hero.id} className={`border border-red-300 p-4 rounded-lg ${getCardColor(hero.type)}`}>
-                                <h2 className='text-3xl text-primary font-semibold mb-4'>{hero.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h2>
+                            <h2 className='text-3xl text-primary font-semibold mb-4'>{hero.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')}</h2>
                                 <p className='text-white-600 mb-2'><strong>Nombre real:</strong> {hero.realName}</p>
                                 <p className='text-white-600 mb-2'><strong>Tipo:</strong> {hero.type}</p>
                                 <p className='text-white-600 mb-2'><strong>Poderes:</strong> {hero.powers}</p>
