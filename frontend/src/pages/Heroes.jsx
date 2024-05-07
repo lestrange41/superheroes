@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import ConfirmationDialog from '../components/ConfirmationDialog';
 import img1 from '../img/dcvsmarvel.jpg';
-import SuccessMessage from '../components/SuccessMessage'; // Importar el componente SuccessMessage
+import SuccessMessage from '../components/SuccessMessage'; 
 
 const Heroes = () => {
     const [heroes, setHeroes] = useState([]);
     const [filteredHeroes, setFilteredHeroes] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedHeroId, setSelectedHeroId] = useState(null);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false); // Nuevo estado para controlar la visibilidad del mensaje de éxito
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     useEffect(() => {
         const fetchHeroes = async () => {
