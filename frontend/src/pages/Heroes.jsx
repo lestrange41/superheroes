@@ -19,7 +19,7 @@ const Heroes = () => {
                 const response = await axios.get('http://localhost:3000/superheroes');
                 setHeroes(response.data);
             } catch (error) {
-                console.error('Error al obtener los héroes:', error);
+                console.error('Error fetching heroes:', error);
             }
         };
 
@@ -28,13 +28,13 @@ const Heroes = () => {
 
     useEffect(() => {
         const filtered = heroes.filter(hero =>
-            hero.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+            hero.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredHeroes(filtered);
     }, [heroes, searchTerm]);
 
     const handleEdit = (id) => {
-        window.location.href = `/editarheroe/${id}`;
+        window.location.href = `/editHero/${id}`;
     };
 
     const handleDelete = async (id) => {
@@ -52,7 +52,7 @@ const Heroes = () => {
                 setShowSuccessMessage(false);
             }, 3000);
         } catch (error) {
-            console.error('Error al borrar el héroe:', error);
+            console.error('Error deleting hero:', error);
         }
         setSelectedHeroId(null);
     };
@@ -60,13 +60,14 @@ const Heroes = () => {
     const cancelDelete = () => {
         setSelectedHeroId(null);
     };
+
     const handleSearch = (e) => {
         const searchTermCapitalized = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
         setSearchTerm(searchTermCapitalized);
     };
 
-    const getCardColor = (tipo) => {
-        return tipo.toLowerCase() === 'villano' ? 'bg-rose-950' : 'bg-blue-900';
+    const getCardColor = (type) => {
+        return type.toLowerCase() === 'villain' ? 'bg-rose-950' : 'bg-blue-900';
     };
 
     return (
@@ -75,39 +76,39 @@ const Heroes = () => {
                 <Navbar />
                 <div className='container mx-auto py-8'>
                     <div className="mt-8">
-                        <Link to="/crearheroe" className="bg-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                            + Añade un SUPERHÉROE
+                        <Link to="/createHero" className="bg-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            + Add a HERO
                         </Link>
                     </div>
                     <div className="mt-8">
-                        <input type="text" value={searchTerm} onChange={handleSearch} placeholder="Buscar por nombre" className="w-full border border-gray-300 bg-gray-200 rounded-md p-2 text-black" />
+                        <input type="text" value={searchTerm} onChange={handleSearch} placeholder="Search by name" className="w-full border border-gray-300 bg-gray-200 rounded-md p-2 text-black" />
                     </div>
                     <div className='grid grid-cols-3 gap-4 mt-8'>
-                        {filteredHeroes.map((heroe) => (
-                            <div key={heroe.id} className={`border border-red-300 p-4 rounded-lg ${getCardColor(heroe.tipo)}`}>
-                                <h2 className='text-3xl text-primary font-semibold mb-4'>{heroe.nombre.charAt(0).toUpperCase() + heroe.nombre.slice(1).toLowerCase()}</h2>
-                                <p className='text-white-600 mb-2'><strong>Nombre Real:</strong> {heroe.nombreReal}</p>
-                                <p className='text-white-600 mb-2'><strong>Tipo:</strong> {heroe.tipo}</p>
-                                <p className='text-white-600 mb-2'><strong>Poderes:</strong> {heroe.poderes}</p>
-                                <p className='text-white-600 mb-2'><strong>Edad:</strong> {heroe.edad}</p>
-                                <p className='text-white-600 mb-2'><strong>Raza:</strong> {heroe.raza}</p>
-                                <p className='text-white-600 mb-4'><strong>Género:</strong> {heroe.genero}</p>
+                        {filteredHeroes.map((hero) => (
+                            <div key={hero.id} className={`border border-red-300 p-4 rounded-lg ${getCardColor(hero.type)}`}>
+                                <h2 className='text-3xl text-primary font-semibold mb-4'>{hero.name.charAt(0).toUpperCase() + hero.name.slice(1).toLowerCase()}</h2>
+                                <p className='text-white-600 mb-2'><strong>Real Name:</strong> {hero.realName}</p>
+                                <p className='text-white-600 mb-2'><strong>Type:</strong> {hero.type}</p>
+                                <p className='text-white-600 mb-2'><strong>Powers:</strong> {hero.powers}</p>
+                                <p className='text-white-600 mb-2'><strong>Age:</strong> {hero.age}</p>
+                                <p className='text-white-600 mb-2'><strong>Race:</strong> {hero.race}</p>
+                                <p className='text-white-600 mb-4'><strong>Gender:</strong> {hero.gender}</p>
                                 <div className="flex justify-between">
-                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(heroe.id)}>Editar</button>
-                                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(heroe.id)}>Eliminar</button>
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(hero.id)}>Edit</button>
+                                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(hero.id)}>Delete</button>
                                 </div>
                             </div>
                         ))}
                     </div>
                     <ConfirmationDialog
                         isOpen={selectedHeroId !== null}
-                        message="¿Estás seguro de que deseas borrar este héroe?"
+                        message="Are you sure you want to delete this hero?"
                         onCancel={cancelDelete}
                         onConfirm={confirmDelete}
                     />
                     <SuccessMessage
                         isOpen={showSuccessMessage}
-                        message="El personaje se ha eliminado correctamente."
+                        message="The character has been deleted successfully."
                     />
                 </div>
             </div>
