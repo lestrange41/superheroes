@@ -3,7 +3,7 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import backgroundimg from '../img/laboratorio.jpeg';
 import AcceptDialog from '../components/AcceptDialog';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate para la navegación
 
 const CreateHeroe = () => {
   const [nombre, setNombre] = useState('');
@@ -51,10 +51,14 @@ const CreateHeroe = () => {
   };
 
   const handleDialogClose = () => {
-    setShowSuccessDialog(false);
-    navigate('/heroes'); // Utiliza navigate para redirigir al usuario
+    setShowSuccessDialog(false)
+    navigate('/heroes')
   };
-
+  const handleNombreChange = (e) => {
+    // Solo cambia la apariencia visual del texto a mayúsculas
+    const capitalizedNombre = e.target.value.toUpperCase();
+    setNombre(capitalizedNombre);
+  }
   return (
     <div className="relative h-screen" style={{ backgroundImage: `url(${backgroundimg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Navbar />
@@ -64,7 +68,8 @@ const CreateHeroe = () => {
             <h1 className="text-3xl font-bold text-center mb-8 text-white">Creación de Superhéroe</h1>
             <div className="mb-4">
               <label htmlFor="nombre" className="block mb-2 text-white">Nombre:</label>
-              <input type="text" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} className="w-full bg-gray-900 border border-red-800 rounded-md px-3 py-2 text-white" />
+              {/* Agrega la clase input-uppercase para transformar visualmente el texto */}
+              <input type="text" id="nombre" value={nombre} onChange={handleNombreChange} className="w-full bg-gray-900 border border-red-800 rounded-md px-3 py-2 text-white input-uppercase" />
             </div>
             <div className="mb-4">
               <label htmlFor="nombreReal" className="block mb-2 text-white">Nombre Real:</label>

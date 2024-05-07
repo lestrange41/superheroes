@@ -6,11 +6,16 @@ const Navbar = () => {
     <div>
     <nav className="bg-secondary-900 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white font-bold text-lg text-4x1">Superhéroes</div>
-        <ul className="flex space-x-4">
-          <li><Link to="/" className="text-primary hover:text-white">Inicio</Link></li>
-          <li><Link to="/heroes" className="text-primary hover:text-white">Héroes</Link></li>
-          <li><Link to="/crearheroe" className="text-primary hover:text-white">Crear Héroe</Link></li>
+      <div className="text-4xl font-bold">
+      <span className="text-white-500">SUPER</span>
+      <span className="text-primary">HÉROES</span>
+</div>
+        <ul className="flex space-x-8">
+          <li><Link to="/" className="text-primary hover:text-white">INICIO</Link></li>
+          <li>|</li>
+          <li><Link to="/heroes" className="text-primary hover:text-white">HÉROES</Link></li>
+          <li>|</li>
+          <li><Link to="/crearheroe" className="text-primary hover:text-white">CREAR HÉROE</Link></li>
          
         </ul>
       </div>

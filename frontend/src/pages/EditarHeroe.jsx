@@ -1,15 +1,14 @@
-// EditarHeroe.jsx
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import EditAndSave from '../components/EditAndSave';
-import backgroundImg from '../img/laboratorio.jpeg';
-import SuccessMessage from '../components/SuccessMessage'; // Importar el componente SuccessMessage
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useParams, useNavigate } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import EditAndSave from '../components/EditAndSave'
+import backgroundImg from '../img/laboratorio.jpeg'
+import SuccessMessage from '../components/SuccessMessage' 
 
 const EditarHeroe = () => {
-    const navigate = useNavigate();
-    const { id } = useParams();
+    const navigate = useNavigate()
+    const { id } = useParams()
     const [hero, setHero] = useState({
         nombre: '',
         nombreReal: '',
@@ -18,55 +17,55 @@ const EditarHeroe = () => {
         edad: 0,
         raza: '',
         genero: ''
-    });
+    })
 
-    const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false); // Nuevo estado para controlar la visibilidad del mensaje de éxito
+    const [showConfirmationDialog, setShowConfirmationDialog] = useState(false)
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false) 
 
     useEffect(() => {
         const fetchHero = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/superheroes/${id}`);
-                setHero(response.data);
+                const response = await axios.get(`http://localhost:3000/superheroes/${id}`)
+                setHero(response.data)
             } catch (error) {
-                console.error('Error al obtener el héroe:', error);
+                console.error('Error al obtener el héroe:', error)
             }
-        };
+        }
 
-        fetchHero();
-    }, [id]);
+        fetchHero()
+    }, [id])
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setHero({
             ...hero,
             [name]: value
-        });
-    };
+        })
+    }
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setShowConfirmationDialog(true);
-    };
+        e.preventDefault()
+        setShowConfirmationDialog(true)
+    }
 
     const handleConfirmSubmit = async () => {
         try {
-            await axios.put(`http://localhost:3000/superheroes/${id}`, hero);
-            console.log('Héroe actualizado exitosamente');
-            setShowConfirmationDialog(false);
-            setShowSuccessMessage(true); // Mostrar el mensaje de éxito
+            await axios.put(`http://localhost:3000/superheroes/${id}`, hero)
+            console.log('Héroe actualizado exitosamente')
+            setShowConfirmationDialog(false)
+            setShowSuccessMessage(true) 
             setTimeout(() => {
-                setShowSuccessMessage(false);
-                navigate('/heroes');
-            }, 3000);
+                setShowSuccessMessage(false)
+                navigate('/heroes')
+            }, 3000)
         } catch (error) {
-            console.error('Error al actualizar el héroe:', error);
+            console.error('Error al actualizar el héroe:', error)
         }
-    };
+    }
 
     const handleCancelSubmit = () => {
-        setShowConfirmationDialog(false);
-    };
+        setShowConfirmationDialog(false)
+    }
 
     return (
         <div style={{ backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh' }}>
@@ -78,7 +77,7 @@ const EditarHeroe = () => {
                     <div className='grid grid-cols-2 gap-4'>
                         <div className='col-span-2'>
                             <label className='block mb-2 text-white'>Nombre</label>
-                            <input type='text' name='nombre' value={hero.nombre} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
+                            <input type='text' name='nombre' value={hero.nombre.toUpperCase()} onChange={handleChange} className='w-full bg-gray-900 border border-red-800 rounded-md p-2 text-white' />
                         </div>
                         <div className='col-span-2'>
                             <label className='block mb-2'>Nombre Real</label>
@@ -127,7 +126,7 @@ const EditarHeroe = () => {
                 />
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default EditarHeroe;
+export default EditarHeroe

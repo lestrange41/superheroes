@@ -22,7 +22,7 @@ const writeHeroes = (data) => {
 export const getHeroes = (req, res) => {
     try {
         const data = readHeroes()
-        res.json(data.superheroes)
+        res.status(200).json(data.superheroes)
     } catch (error) {
         console.error(error)
         res.status(500).json({ message: 'Error interno del servidor' })
@@ -37,7 +37,7 @@ export const getHeroById = (req, res) => {
         if (!heroe) {
             return res.status(404).json({ message: 'Superhéroe no encontrado' })
         }
-        res.json(heroe);
+        res.status(200).json(heroe);
     } catch (error) {
         console.error(error)
         res.status(500).json({ message: 'Error interno del servidor' })
@@ -78,13 +78,13 @@ export const updateHero = (req, res) => {
             ...body,
         };
         writeHeroes(data)
-        res.json({ message: 'El Superhéroe ha sido actualizado correctamente' })
+        res.status(200).json({ message: 'El Superhéroe ha sido actualizado correctamente' })
     } catch (error) {
         console.error(error)
         res.status(500).json({ message: 'Error interno del servidor' })
     }
 };
-
+//81 posar http
 export const deleteHero = (req, res) => {
     try {
         const data = readHeroes()

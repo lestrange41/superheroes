@@ -47,7 +47,7 @@ const Heroes = () => {
 
             const updatedHeroes = heroes.filter(hero => hero.id !== selectedHeroId);
             setHeroes(updatedHeroes);
-            setShowSuccessMessage(true); // Mostrar el mensaje de éxito
+            setShowSuccessMessage(true);
             setTimeout(() => {
                 setShowSuccessMessage(false);
             }, 3000);
@@ -60,9 +60,9 @@ const Heroes = () => {
     const cancelDelete = () => {
         setSelectedHeroId(null);
     };
-
     const handleSearch = (e) => {
-        setSearchTerm(e.target.value);
+        const searchTermCapitalized = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1);
+        setSearchTerm(searchTermCapitalized);
     };
 
     const getCardColor = (tipo) => {
@@ -85,7 +85,7 @@ const Heroes = () => {
                     <div className='grid grid-cols-3 gap-4 mt-8'>
                         {filteredHeroes.map((heroe) => (
                             <div key={heroe.id} className={`border border-red-300 p-4 rounded-lg ${getCardColor(heroe.tipo)}`}>
-                                <h2 className='text-3xl text-primary font-semibold mb-4'>{heroe.nombre.charAt(0).toUpperCase() + heroe.nombre.slice(1)}</h2>
+                                <h2 className='text-3xl text-primary font-semibold mb-4'>{heroe.nombre.charAt(0).toUpperCase() + heroe.nombre.slice(1).toLowerCase()}</h2>
                                 <p className='text-white-600 mb-2'><strong>Nombre Real:</strong> {heroe.nombreReal}</p>
                                 <p className='text-white-600 mb-2'><strong>Tipo:</strong> {heroe.tipo}</p>
                                 <p className='text-white-600 mb-2'><strong>Poderes:</strong> {heroe.poderes}</p>
