@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const ConfirmationDialog = ({ isOpen, message, onCancel, onConfirm }) => {
-    if (!isOpen) return null;
+    if (!isOpen) return null
 
     return (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">

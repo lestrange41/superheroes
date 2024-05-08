@@ -15,14 +15,17 @@ const CreateHero = () => {
   const [gender, setGender] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
   const [showSuccessDialog, setShowSuccessDialog] = useState(false)
+  const [showErrorMessage, setShowErrorMessage] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-  
     if (!name || !realName || !type || !powers || !age || !race || !gender) {
-      setSuccessMessage('')
+      setShowErrorMessage(true)
+      setTimeout(() => {
+        setShowErrorMessage(false)
+      }, 3000)
       return
     }
 
@@ -45,7 +48,7 @@ const CreateHero = () => {
       setRace('')
       setGender('')
       setSuccessMessage('El superhéroe ha sido creado correctamente.')
-      setShowSuccessDialog(true)
+      setShowSuccessDialog(true);
     } catch (error) {
       console.error('Error creating the superhero:', error)
     }
@@ -61,6 +64,7 @@ const CreateHero = () => {
     setName(capitalizedName)
   }
 
+
   return (
     <div className="relative h-screen" style={{ backgroundImage: `url(${backgroundImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Navbar />
@@ -68,6 +72,9 @@ const CreateHero = () => {
         <div className='border-white-200'>
           <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-black border border-red-800 rounded-lg shadow-lg px-8 py-6">
             <h1 className="text-3xl font-bold text-center mb-8 text-white">Crear un Superhéroe</h1>
+            {showErrorMessage && (
+              <div className="mb-4 text-red-600 text-center">¡No es posible crear el superhéroe! Aún faltan campos por llenar.</div>
+            )}
             <div className="mb-4">
               <label htmlFor="name" className="block mb-2 text-white">Nombre:</label>
               <input type="text" id="name" value={name} onChange={handleNameChange} className="w-full bg-gray-900 border border-red-800 rounded-md px-3 py-2 text-white input-uppercase" />
@@ -79,7 +86,7 @@ const CreateHero = () => {
             <div className="mb-4">
               <label htmlFor="type" className="block mb-2 text-white">Tipo:</label>
               <select id="type" value={type} onChange={(e) => setType(e.target.value)} className="w-full bg-gray-900 border border-red-800 rounded-md px-3 py-2 text-white">
-              <option value="">Selecciona el tipo</option>   
+                <option value="">Selecciona el tipo</option>
                 <option value="Héroe">Héroe</option>
                 <option value="Villano">Villano</option>
               </select>
@@ -106,7 +113,7 @@ const CreateHero = () => {
               </select>
             </div>
             <div className='flex justify-center'>
-            <button type="submit" className="bg-red-800 text-white py-2 px-4 rounded-lg text-lg hover:bg-red-900 transition duration-300 ">Crear el Superhéroe</button>
+              <button type="submit" className="bg-red-800 text-white py-2 px-4 rounded-lg text-lg hover:bg-red-900 transition duration-300 ">Crear el Superhéroe</button>
             </div>
           </form>
           <AcceptDialog
@@ -118,6 +125,6 @@ const CreateHero = () => {
       </div>
     </div>
   );
-}
+};
 
 export default CreateHero;

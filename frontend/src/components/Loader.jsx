@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import PacmanLoader from "react-spinners/PacmanLoader";
+import React, { useState, useEffect } from 'react'
+import PacmanLoader from "react-spinners/PacmanLoader"
 
 const Loader = () => {
     const [loading, setLoading] = useState(true);

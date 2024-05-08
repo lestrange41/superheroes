@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Righteous&family=Sedgwick+Ave+Display&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,3 +7,15 @@
   width: 0px;
 }
 
+.luckiest-guy-regular {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Luckiest Guy Static' cursive;
+  font-weight: 400;
+  font-style: normal;
+
+}

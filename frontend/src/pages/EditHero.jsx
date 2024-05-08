@@ -51,7 +51,6 @@ const EditHero = () => {
     const handleConfirmSubmit = async () => {
         try {
             await axios.put(`http://localhost:3000/superheroes/${id}`, hero)
-            console.log('Hero updated successfully')
             setShowConfirmationDialog(false)
             setShowSuccessMessage(true)
             setTimeout(() => {
